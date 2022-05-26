@@ -2,20 +2,16 @@ package com.example.todoappmvc.model.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
+import java.io.Serializable
 import java.util.*
 
-@Entity
-class MyToDoDb {
+@Entity(tableName = "task_table")
+data class MyToDoDb(
     @PrimaryKey(autoGenerate = true)
-    var name: String? = null
-    var category: String? = null
-    var date: Date? = null
-    var time: String? = null
+    var id: Int? = 0,
+    var name: String,
+    var category: String,
+    var date: Date,
+    var time: String
 
-    constructor(name: String?, category: String?, date: Date?, time: String?) {
-        this.name = name
-        this.category = category
-        this.date = date
-        this.time = time
-    }
-}
+) : Serializable
