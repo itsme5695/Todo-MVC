@@ -10,4 +10,14 @@
         android:name="com.example.todoappmvc.fragments.MainPageFragment"
         android:label="fragment_main_page"
         tools:layout="@layout/fragment_main_page" />
+    <fragment
+        android:id="@+id/addTaskFragment"
+        android:name="com.example.todoappmvc.fragments.AddTaskFragment"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" />
+    <fragment
+        android:id="@+id/categoryEnterFragment"
+        android:name="com.example.todoappmvc.fragments.CategoryEnterFragment"
+        android:label="fragment_category_enter"
+        tools:layout="@layout/fragment_category_enter" />
 </navigation>
