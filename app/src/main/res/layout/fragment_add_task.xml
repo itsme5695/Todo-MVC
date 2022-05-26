@@ -4,108 +4,157 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.MainPageFragment">
+    tools:context=".fragments.AddTaskFragment">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/add"
+    <TextView
+        android:id="@+id/cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="15dp"
-        android:src="@drawable/ic_add"
-        app:backgroundTint="@color/white"
+        android:text="Cancel"
+        android:textColor="#006CFF"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_bias="0.99"
+        app:layout_constraintHorizontal_bias="0.04"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.99" />
+        app:layout_constraintVertical_bias="0.04" />
 
-    <androidx.core.widget.NestedScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
+    <TextView
+        android:id="@+id/done"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Done"
+        android:textColor="#006CFF"
+        android:textSize="25dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.95"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.04" />
+
+    <LinearLayout
+        android:id="@+id/linear"
+        android:layout_width="0dp"
+        android:layout_marginTop="30dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cancel"
+        app:layout_constraintWidth_percent="0.9">
+
+        <androidx.appcompat.widget.AppCompatCheckBox
+            android:id="@+id/check_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:button="@drawable/custom_checkbox"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/task_input"
+            android:layout_width="match_parent"
+            android:layout_weight="1"
+            android:layout_height="70dp"
+            android:hint="What do you want to do?" />
+        <androidx.cardview.widget.CardView
+            android:id="@+id/_edit_type_color"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:visibility="invisible"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            android:layout_gravity="center"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linear2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="1"
+        app:layout_constraintBottom_toTopOf="@id/category_linear"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintWidth_percent="0.9">
+
+        <ImageView
+            android:id="@+id/calendar_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/calendar_icon" />
+
+        <ImageView
+            android:id="@+id/time_img"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginLeft="20dp"
+            android:src="@drawable/time" />
+        <TextView
+            android:id="@+id/caegory_text"
+            android:text="Inbox"
+            android:textSize="20dp"
+            android:layout_weight="1"
+            android:gravity="end"
+            android:layout_marginRight="15dp"
+            android:textColor="#252A31"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+        <androidx.cardview.widget.CardView
+            android:id="@+id/type_color"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            app:cardBackgroundColor="@color/black"
+            app:cardCornerRadius="50dp"
+            app:cardElevation="0dp"
+            android:layout_gravity="center"/>
+
+    </LinearLayout>
+    <CalendarView
+        android:visibility="gone"
+        android:id="@+id/calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <TimePicker
+        android:id="@+id/time_view"
+        android:visibility="gone"
+        android:timePickerMode="spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <LinearLayout
+        android:id="@+id/category_linear"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp">
-
-            <LinearLayout
-                android:id="@+id/linear"
-                android:layout_width="match_parent"
-                android:layout_height="90dp"
-                android:orientation="horizontal"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="50dp"
-                        android:text="Today"
-                        android:textColor="@color/black"
-                        android:textSize="35dp"
-                        android:textStyle="bold"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintLeft_toLeftOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-
-                    <ImageView
-                        android:id="@+id/more"
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
-                        android:layout_gravity="center"
-                        android:layout_marginRight="10dp"
-                        android:src="@drawable/ic_more"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintRight_toRightOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </LinearLayout>
-
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycler_tasks"
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
-                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-                app:layout_constraintBottom_toTopOf="@id/tv"
-                app:layout_constraintHeight_percent="0.4"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/linear"
-                tools:listitem="@layout/task_item" />
-
-            <TextView
-                android:id="@+id/tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Lists"
-                android:textSize="20dp"
-                app:layout_constraintHorizontal_bias="0.1"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/recycler_tasks" />
+            android:layout_height="match_parent">
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/inbox"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#EBEFF5"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toTopOf="@id/work"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tv"
-                app:layout_constraintWidth_percent="0.8">
+
+                app:layout_constraintWidth_percent="0.9">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
@@ -119,7 +168,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Inbox"
                         android:textColor="@color/black"
-                        android:textSize="30dp"
+                        android:textSize="23dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
@@ -135,7 +184,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="25dp"
                         android:text="1"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -149,32 +198,73 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="25dp"
                         android:text="task(s)"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toRightOf="@id/task_number_inbox"
                         app:layout_constraintRight_toRightOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/select_status_inbox"
+                        android:visibility="gone"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="25dp"
+
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_tick"
+                            android:layout_gravity="center"
+                            android:layout_height="match_parent"/>
+                    </androidx.cardview.widget.CardView>
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/work"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#61DEA4"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toTopOf="@id/shopping"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/inbox"
-                app:layout_constraintWidth_percent="0.8">
+                app:layout_constraintWidth_percent="0.9">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/select_status_work"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="25dp"
 
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_tick"
+                            android:layout_gravity="center"
+                            android:layout_height="match_parent"/>
+                    </androidx.cardview.widget.CardView>
                     <TextView
                         android:id="@+id/work_tv"
                         android:layout_width="wrap_content"
@@ -183,7 +273,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Work"
                         android:textColor="@color/white"
-                        android:textSize="30dp"
+                        android:textSize="23dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
@@ -200,7 +290,7 @@
                         android:layout_marginTop="25dp"
                         android:text="1"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -215,7 +305,7 @@
                         android:layout_marginTop="25dp"
                         android:text="task(s)"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toRightOf="@id/task_number_work"
@@ -227,20 +317,40 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/shopping"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#F45E6D"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toTopOf="@+id/family"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/work"
-                app:layout_constraintWidth_percent="0.8">
+
+                app:layout_constraintWidth_percent="0.9">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/select_status_shopping"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="25dp"
 
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_tick"
+                            android:layout_gravity="center"
+                            android:layout_height="match_parent"/>
+                    </androidx.cardview.widget.CardView>
                     <TextView
                         android:id="@+id/shopping_tv"
                         android:layout_width="wrap_content"
@@ -249,7 +359,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Shopping"
                         android:textColor="@color/white"
-                        android:textSize="30dp"
+                        android:textSize="23dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
@@ -266,7 +376,7 @@
                         android:layout_marginTop="25dp"
                         android:text="1"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -281,7 +391,7 @@
                         android:layout_marginTop="25dp"
                         android:text="task(s)"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toRightOf="@id/task_number_shopping"
@@ -293,19 +403,39 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/family"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#FFE761"
                 app:cardCornerRadius="15dp"
+                app:layout_constraintBottom_toTopOf="@id/personal"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/shopping"
-                app:layout_constraintWidth_percent="0.8">
+                app:layout_constraintWidth_percent="0.9">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/select_status_family"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="25dp"
 
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_tick"
+                            android:layout_gravity="center"
+                            android:layout_height="match_parent"/>
+                    </androidx.cardview.widget.CardView>
                     <TextView
                         android:id="@+id/family_tv"
                         android:layout_width="wrap_content"
@@ -314,7 +444,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Family"
                         android:textColor="@color/black"
-                        android:textSize="30dp"
+                        android:textSize="23dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
@@ -330,7 +460,7 @@
                         android:layout_marginLeft="20dp"
                         android:layout_marginTop="25dp"
                         android:text="1"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -344,7 +474,7 @@
                         android:layout_marginLeft="5dp"
                         android:layout_marginTop="25dp"
                         android:text="task(s)"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toRightOf="@id/task_number_family"
@@ -356,20 +486,39 @@
             <androidx.cardview.widget.CardView
                 android:id="@+id/personal"
                 android:layout_width="0dp"
-                android:layout_height="80dp"
-                android:layout_marginTop="10dp"
+                android:layout_height="65dp"
+                android:layout_marginBottom="10dp"
                 app:cardBackgroundColor="#B678FF"
                 app:cardCornerRadius="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/family"
-                app:layout_constraintWidth_percent="0.8">
+                app:layout_constraintWidth_percent="0.9">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/select_status_personal"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:visibility="gone"
+                        app:cardBackgroundColor="@color/white"
+                        app:cardCornerRadius="50dp"
+                        app:cardElevation="0dp"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintRight_toRightOf="parent"
+                        android:layout_marginRight="25dp"
 
+                        >
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:padding="7dp"
+                            android:src="@drawable/ic_tick"
+                            android:layout_gravity="center"
+                            android:layout_height="match_parent"/>
+                    </androidx.cardview.widget.CardView>
                     <TextView
                         android:id="@+id/personal_tv"
                         android:layout_width="wrap_content"
@@ -378,7 +527,7 @@
                         android:layout_marginTop="5dp"
                         android:text="Personal"
                         android:textColor="@color/white"
-                        android:textSize="30dp"
+                        android:textSize="23dp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
@@ -395,7 +544,7 @@
                         android:layout_marginTop="25dp"
                         android:text="1"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -410,7 +559,7 @@
                         android:layout_marginTop="25dp"
                         android:text="task(s)"
                         android:textColor="@color/white"
-                        android:textSize="20dp"
+                        android:textSize="15dp"
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintHorizontal_bias="0"
                         app:layout_constraintLeft_toRightOf="@id/task_number_personal"
@@ -419,5 +568,6 @@
                 </androidx.constraintlayout.widget.ConstraintLayout>
             </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
-    </androidx.core.widget.NestedScrollView>
+    </LinearLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
