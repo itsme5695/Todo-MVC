@@ -7,6 +7,7 @@
         android:id="@+id/time_view"
         android:timePickerMode="spinner"
         android:layout_width="match_parent"
+
         android:layout_height="wrap_content"/>
 
 
@@ -16,16 +17,17 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal">
         <androidx.appcompat.widget.AppCompatButton
-            android:background="#8DF3FF"
+            android:background="@drawable/btn_background"
             android:text="Save"
             android:id="@+id/save"
+            android:textColor="@color/white"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
         <androidx.appcompat.widget.AppCompatButton
-            android:background="#8DF3FF"
-
+            android:background="@drawable/btn_background"
             android:layout_marginLeft="50dp"
             android:text="Cancel"
+            android:textColor="@color/white"
             android:id="@+id/cancel"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
