@@ -5,6 +5,6 @@ import java.util.*
 data class Todo(
     var name:String,
     var category:String,
-    var date:Date,
+    var date:String,
     var time:String
 )

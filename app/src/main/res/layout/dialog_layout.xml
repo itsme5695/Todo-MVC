@@ -6,6 +6,7 @@
     android:padding="10dp">
 
     <LinearLayout
+        android:id="@+id/task_add"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="horizontal"
@@ -13,7 +14,6 @@
 
         <ImageView
             android:layout_gravity="center"
-            android:id="@+id/task_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_task" />
@@ -32,12 +32,12 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:id="@+id/list_add"
         android:orientation="horizontal"
         android:padding="10dp">
 
         <ImageView
             android:layout_gravity="center"
-            android:id="@+id/list_add"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_lists" />
