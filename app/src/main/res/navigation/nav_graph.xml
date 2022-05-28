@@ -16,8 +16,8 @@
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" />
     <fragment
-        android:id="@+id/categoryEnterFragment"
-        android:name="com.example.todoappmvc.fragments.CategoryEnterFragment"
-        android:label="fragment_category_enter"
-        tools:layout="@layout/fragment_category_enter" />
+        android:id="@+id/toDoFragment"
+        android:name="com.example.todoappmvc.fragments.ToDoFragment"
+        android:label="fragment_to_do"
+        tools:layout="@layout/fragment_to_do" />
 </navigation>
