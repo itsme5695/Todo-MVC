@@ -7,7 +7,6 @@ import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -19,7 +18,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.todoapp_mvc.controller.Controller
+import com.example.todoappmvc.controller.Controller
 import com.example.todoappmvc.R
 import com.example.todoappmvc.adapters.CategoryAdapter
 import com.example.todoappmvc.adapters.TaskAdapter

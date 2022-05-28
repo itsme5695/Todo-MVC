@@ -9,7 +9,7 @@ import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoapp_mvc.controller.Controller
+import com.example.todoappmvc.controller.Controller
 import com.example.todoappmvc.R
 import com.example.todoappmvc.controller.AlarmController
 import com.example.todoappmvc.databinding.TaskItemBinding

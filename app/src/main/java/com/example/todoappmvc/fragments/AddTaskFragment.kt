@@ -15,7 +15,7 @@ import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
-import com.example.todoapp_mvc.controller.Controller
+import com.example.todoappmvc.controller.Controller
 import com.example.todoappmvc.R
 import com.example.todoappmvc.adapters.CategoryAdapter
 import com.example.todoappmvc.controller.AlarmController

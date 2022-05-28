@@ -1,4 +1,4 @@
-package com.example.todoapp_mvc.controller
+package com.example.todoappmvc.controller
 
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel

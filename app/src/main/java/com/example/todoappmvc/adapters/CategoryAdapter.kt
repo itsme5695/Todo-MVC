@@ -7,7 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todoapp_mvc.controller.Controller
+import com.example.todoappmvc.controller.Controller
 import com.example.todoappmvc.R
 import com.example.todoappmvc.databinding.CategoryItemBinding
 import com.example.todoappmvc.room.entity.Category

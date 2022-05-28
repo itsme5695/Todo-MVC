@@ -2,7 +2,7 @@ package com.example.todoappmvc.utils
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.example.todoapp_mvc.controller.Controller
+import com.example.todoappmvc.controller.Controller
 import com.example.todoappmvc.room.database.DatabaseHelper
 
 class ViewmodelFactory(private var dbHelper: DatabaseHelper) :
