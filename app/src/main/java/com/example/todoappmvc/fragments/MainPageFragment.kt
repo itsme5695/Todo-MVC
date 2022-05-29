@@ -11,6 +11,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.Window
+import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.core.content.ContextCompat
 import androidx.core.view.WindowCompat
@@ -153,17 +154,21 @@ class MainPageFragment : Fragment() {
                 }
                 color.observe(viewLifecycleOwner) { color ->
                     view.add.setOnClickListener {
-                        viewModel.addCategory(
-                            Category(
-                                view.edit.text.toString(),
-                                color
+                        if (view.edit.text.toString().trim().isEmpty()){
+                            Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT).show()
+                        }else{
+                            viewModel.addCategory(
+                                Category(
+                                    view.edit.text.toString().trim(),
+                                    color
+                                )
                             )
-                        )
-                        dialog.dismiss()
-                        binding.dilalog.visibility = View.GONE
-                        binding.innerContainer.alpha = 1f
-                        binding.fab.rotation = 0f
-                        loadUIData()
+                            dialog.dismiss()
+                            binding.dilalog.visibility = View.GONE
+                            binding.innerContainer.alpha = 1f
+                            binding.fab.rotation = 0f
+                            loadUIData()
+                        }
                     }
                 }
                 dialog.setContentView(view.root)

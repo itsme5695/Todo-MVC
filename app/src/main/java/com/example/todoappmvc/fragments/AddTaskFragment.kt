@@ -191,21 +191,27 @@ class AddTaskFragment : Fragment() {
                             .show()
                     } else {
                         if (iscategory != null) {
-                            var task = TaskData(
-                                binding.taskName.text.toString(),
-                                date,
-                                time,
-                                false,
-                                iscategory!!.category_id,
-                                iscategory!!.category_name,
-                                iscategory!!.category_color
-                            )
-                            viewModel.addTask(task)
-                            alarmController.setAlarm(
-                                "${time.substring(0, 2)}${time.substring(3)}".toInt(), date, time,
-                                binding.taskName.text.toString()
-                            )
-                            findNavController().popBackStack()
+                            if (binding.taskName.text.toString().trim().isEmpty()) {
+                                Toast.makeText(requireContext(), "Failed", Toast.LENGTH_SHORT)
+                                    .show()
+                            }else{
+                                val task = TaskData(
+                                    binding.taskName.text.toString().trim(),
+                                    date,
+                                    time,
+                                    false,
+                                    iscategory!!.category_id,
+                                    iscategory!!.category_name,
+                                    iscategory!!.category_color
+                                )
+                                viewModel.addTask(task)
+                                alarmController.setAlarm(
+                                    "${time.substring(0, 2)}${time.substring(3)}".toInt(), date, time,
+                                    binding.taskName.text.toString().trim()
+                                )
+                                Toast.makeText(mContext, "done", Toast.LENGTH_SHORT).show()
+                                findNavController().popBackStack()
+                            }
                         }
                     }
                 } catch (e: Exception) {
